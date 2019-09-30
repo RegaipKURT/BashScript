@@ -55,7 +55,10 @@ set +x
 
 Yukarıdaki şekilde yazarsak sadece set ksıımları arasında kalan kodlar için
 hata ayıklama yapılır. Bu bize kod içinde istediğimiz kısmlarda debugging yapma imkanı verir. 
+<<<<<<< HEAD
 Aşağıda buna kod içinde örnek verelim
+=======
+>>>>>>> 697c5062bfb20aa7c162bbb0031dfcc11347976c
 
 --DEBUGGING
 
