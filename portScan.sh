@@ -1,8 +1,8 @@
 #!/bin/bash
 
-target=$1 # hedef ip
-minPort=$2 # port alt sınır
-maxPort=$3 # port üst sınır
+target=$1 # hedef ip // ilk argüman
+minPort=$2 # port alt sınır // ikinci argüman
+maxPort=$3 # port üst sınır // üçüncü argüman
 
 # tarama fonksiyonu
 function scanPorts
