@@ -11,6 +11,7 @@ for ((counter=$minPort; counter<=$maxPort; counter++)) #min ve max port numarala
 do
     # ilgili porta bilgi gönderip açıksa ekrana yazdıracağız.
 	(echo >/dev/tcp/$target/$counter) > /dev/null 2>&1 && echo "$counter open"
+	# eğer cevap dönmezse (hata dönerse) /dev/null içine gidecek yoksa port open yazacak
 done
 }
 
