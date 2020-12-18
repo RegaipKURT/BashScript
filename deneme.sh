@@ -1,54 +1,17 @@
-#! /bin/bash
+#!/bin/bash
 
-# CASE KULLANIMI UYGULAMA ÖRNEĞİ
+target=$1 # hedef ip
+minPort=$2 # port alt sınır
+maxPort=$3 # port üst sınır
 
-<< --CASE
+# tarama fonksiyonu
+function scanPorts
+{
+for ((counter=$minPort; counter<=$maxPort; counter++)) #min ve max port numaraları arasındaki tüm portları deneyeceğiz.
+do
+    # ilgili porta bilgi gönderip açıksa ekrana yazdıracağız.
+	(echo >/dev/tcp/$target/$counter) > /dev/null 2>&1 && echo "$counter open"
+done
+}
 
-10-CASE KULLANIMI İLE İLGİLİ UYGULAMA ÖRNEĞİ
-
---CASE
-
-ay=$(date +%m)
-gun=$(date +%d)
-yil=$(date +%y)
-
-case $ay in
-
-	02) echo "Bu ay 28 veya 29 gün olabilir";;
-
-	04|06|09|11)
-		echo "Bu ay 30 gün sürer.";;
-	
-	*)
-		echo "Bu ay 31 gündür.";;
-esac
-
-case $ay in
-	01)
-		ayim="Ocak";;
-	02)
-		ayim="Şubat";;
-	03)
-		ayim="Mart";;
-	04)
-		ayim="Nisan";;
-	05)
-		ayim="Mayıs";;
-	06)
-		ayim="Haziran";;
-	07)
-		ayim="Temmuz";;
-	08)
-		ayim="Ağustos";;
-	09)
-		ayim="Eylül";;
-	10)
-		ayim="Ekim";;
-	11)
-		ayim="Kasım";;
-	12)
-		ayim="Aralık";;
-esac
-echo
-echo "Gün:$gun, Ay:$ayim, Yıl:$yil"
-echo
+scanPorts
